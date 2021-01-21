@@ -1,0 +1,47 @@
+<div >
+
+</div>
+<div class="form-row">
+  <div class="form-group col">
+    <label for="description">Titre</label>
+    <input type="text" class="form-control" name="titre" [(ngModel)]="titre" />
+    <label for="description">Description</label>
+    <input type="text" class="form-control" name="description" [(ngModel)]="description" />
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="createTicket()">Create New</button>
+  </div>
+</div>
+<br>
+<hr>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th>Intervenant</th>
+      <th>Terminé</th>
+      <th>Titre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets">
+      <td>
+        <button class="btn btn-secondary" (click)="detailTicket(ticket.id)">
+          Détails
+        </button>
+        <button
+          class="btn btn-secondary"
+          *ngIf="!ticket.traiter"
+          (click)="complete(ticket.id)">
+          Mark Complete
+        </button>
+      </td>
+      <td>{{ ticket.userId }}</td>
+      <td>{{ ticket.traiter }}</td>
+      <td>{{ ticket.description }}</td>
+    </tr>
+  </tbody>
+</table>

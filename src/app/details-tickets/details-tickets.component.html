@@ -1,0 +1,12 @@
+
+
+<div class="col">
+    <h2>Titre: {{ ticket.titre }}</h2>
+    <br />
+    Assignee: {{ ticket.userId }}<br />
+    Completed: {{ ticket.traiter }}<br />
+    Description: {{ ticket.description }}
+</div>
+<div class="row">
+    <div class="col"><a [routerLink]="['/ticket']">Retour à la list</a></div>
+  </div>
